@@ -1,0 +1,7 @@
+				<delFromZip zip="${extracted.app.server.lib.global.dir}/portal-impl.jar" >
+					<include name="META-INF/portal-log4j.xml"/>
+					<include name="com/liferay/portal/deploy/dependencies/speed-filters-web.xml"/>
+#foreach ($duplicate in ${duplicates})
+					<include name="$duplicate"/>
+#end
+				</delFromZip>
