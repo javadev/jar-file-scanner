@@ -3,7 +3,10 @@
 					<include name="com/liferay/portal/deploy/dependencies/speed-filters-web.xml"/>
 					<include name="com/liferay/portal/events/ServicePreAction.class"/>
 					<include name="com/liferay/portal/model/impl/LayoutImpl.class"/>
+					<include name="com/liferay/portal/model/impl/LayoutTypePortletImpl.class"/>
 					<include name="com/liferay/portal/scheduler/quartz/QuartzSchedulerEngineImpl.class"/>
+					<include name="com/liferay/portal/search/lucene/LuceneIndexer.class"/>
+					<include name="com/liferay/portal/security/auth/SessionAuthToken.class"/>
 					<include name="com/liferay/portal/security/permission/PermissionCacheUtil.class"/>
 					<include name="com/liferay/portal/servlet/MainServlet.class"/>
 					<include name="com/liferay/portal/servlet/PortalSessionCreator.class"/>
@@ -11,6 +14,10 @@
 					<include name="com/liferay/portal/servlet/filters/gzip/GZipFilter.class"/>
 					<include name="com/liferay/portal/velocity/VelocityEngineImpl.class"/>
 					<include name="com/liferay/portlet/PortletContextFactory.class"/>
+					<include name="com/liferay/portlet/PortletRequestDispatcherImpl.class"/>
+					<include name="com/liferay/portlet/PortletServletRequest.class"/>
+					<include name="com/liferay/portlet/PortletServletResponse.class"/>
 					<include name="com/liferay/portlet/enterpriseadmin/action/EditOrganizationAction.class"/>
 					<include name="com/liferay/portlet/journal/service/persistence/JournalArticleResourcePersistenceImpl.class"/>
+					<include name="com/liferay/portlet/journalcontent/util/JournalContentImpl.class"/>
 				</delFromZip>

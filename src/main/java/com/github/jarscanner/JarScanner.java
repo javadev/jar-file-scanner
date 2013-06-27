@@ -82,6 +82,7 @@ public class JarScanner {
                 classDuplicates.add(entry.getKey());
             }
         }
+        java.util.Collections.sort(classDuplicates);
         new XmlGenerator(classDuplicates, outXml).generate();
     }
 
