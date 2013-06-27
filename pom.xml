@@ -44,14 +44,35 @@
           <mainClass>com.github.jarscanner.JarScanner</mainClass>
         </configuration>
       </plugin>
-      <plugin>  
-        <groupId>org.jvnet.jaxb2.maven2</groupId>
-        <artifactId>maven-jaxb2-plugin</artifactId>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.4</version>
         <executions>
           <execution>
+            <phase>package</phase>
             <goals>
-              <goal>generate</goal>
+              <goal>shade</goal>
             </goals>
+            <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/maven/**</exclude>
+                    <exclude>META-INF/services/**</exclude>
+                    <exclude>META-INF/COPYRIGHT.html</exclude>
+                    <exclude>META-INF/LICENSE*</exclude>
+                    <exclude>META-INF/NOTICE*</exclude>
+                    <exclude>META-INF/README.txt</exclude>
+                    <exclude>META-INF/DEPENDENCIES*</exclude>
+                    <exclude>LICENSE.txt</exclude>
+                    <exclude>rhinoDiff.txt</exclude>
+                    <exclude>license/**</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+            </configuration>
           </execution>
         </executions>
       </plugin>
