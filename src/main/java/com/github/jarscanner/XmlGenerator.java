@@ -41,10 +41,12 @@ import org.apache.velocity.runtime.resource.util.StringResourceRepository;
  * @version $Revision$ $Date$
  */
 public class XmlGenerator {
-    private List<String> duplicates;
+    private List<String> duplicatesImpl;
+    private List<String> duplicatesBridges;
     private String outXml;
-    public XmlGenerator(List<String> duplicates, String outXml) {
-        this.duplicates = duplicates;
+    public XmlGenerator(List<String> duplicatesImpl, List<String> duplicatesBridges, String outXml) {
+        this.duplicatesImpl = duplicatesImpl;
+        this.duplicatesBridges = duplicatesBridges;
         this.outXml = outXml;
     }
 
@@ -56,7 +58,8 @@ public class XmlGenerator {
 
         Template template = getTemplate("com/github/jarscanner/jar-data.vm");
         VelocityContext context = new VelocityContext();
-        context.put("duplicates", duplicates);
+        context.put("duplicatesImpl", duplicatesImpl);
+        context.put("duplicatesBridges", duplicatesBridges);
         try {
             Writer writer = new OutputStreamWriter(new FileOutputStream(outXml), "utf-8");
             template.merge(context, writer);

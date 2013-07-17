@@ -7,7 +7,6 @@
 					<include name="com/liferay/portal/scheduler/quartz/QuartzSchedulerEngineImpl.class"/>
 					<include name="com/liferay/portal/search/lucene/LuceneIndexer.class"/>
 					<include name="com/liferay/portal/security/auth/SessionAuthToken.class"/>
-					<include name="com/liferay/portal/security/permission/PermissionCacheUtil.class"/>
 					<include name="com/liferay/portal/servlet/MainServlet.class"/>
 					<include name="com/liferay/portal/servlet/PortalSessionCreator.class"/>
 					<include name="com/liferay/portal/servlet/PortalSessionDestroyer.class"/>
@@ -20,4 +19,13 @@
 					<include name="com/liferay/portlet/enterpriseadmin/action/EditOrganizationAction.class"/>
 					<include name="com/liferay/portlet/journal/service/persistence/JournalArticleResourcePersistenceImpl.class"/>
 					<include name="com/liferay/portlet/journalcontent/util/JournalContentImpl.class"/>
+				</delFromZip>
+
+				<delFromZip zip="${extracted.app.server.lib.global.dir}/portal-service.jar" >
+					<include name="com/liferay/portal/kernel/deploy/hot/HotDeployUtil$1.class"/>
+					<include name="com/liferay/portal/kernel/deploy/hot/HotDeployUtil.class"/>
+					<include name="com/liferay/portal/kernel/util/BasePortalLifecycle.class"/>
+					<include name="com/liferay/portal/kernel/util/PortalLifecycle.class"/>
+					<include name="com/liferay/portal/kernel/util/PortalLifecycleUtil.class"/>
+					<include name="com/liferay/portal/model/LayoutConstants.class"/>
 				</delFromZip>

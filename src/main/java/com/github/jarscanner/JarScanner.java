@@ -75,15 +75,23 @@ public class JarScanner {
                 }
             }
         }
-        List<String> classDuplicates = new ArrayList<String>();
+        List<String> classDuplicatesPortalImpl = new ArrayList<String>();
         for (Map.Entry<String, List<String>> entry : duplicates.entrySet()) {
             if (entry.getValue().size() > 1 && entry.getValue().toString().contains("portal-impl")) {
                 LOG.info(" Duplicates for class '" + entry.getKey() + "' in packages - " + entry.getValue());
-                classDuplicates.add(entry.getKey());
+                classDuplicatesPortalImpl.add(entry.getKey());
             }
         }
-        java.util.Collections.sort(classDuplicates);
-        new XmlGenerator(classDuplicates, outXml).generate();
+        java.util.Collections.sort(classDuplicatesPortalImpl);
+        List<String> classDuplicatesPortalsBridges = new ArrayList<String>();
+        for (Map.Entry<String, List<String>> entry : duplicates.entrySet()) {
+            if (entry.getValue().size() > 1 && entry.getValue().toString().contains("portal-service")) {
+                LOG.info(" Duplicates for class '" + entry.getKey() + "' in packages - " + entry.getValue());
+                classDuplicatesPortalsBridges.add(entry.getKey());
+            }
+        }
+        java.util.Collections.sort(classDuplicatesPortalsBridges);
+        new XmlGenerator(classDuplicatesPortalImpl, classDuplicatesPortalsBridges, outXml).generate();
     }
 
     private List<String> findClassesInJar(String jarFilename) throws Exception {
